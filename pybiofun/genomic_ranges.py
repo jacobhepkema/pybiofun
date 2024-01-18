@@ -16,7 +16,7 @@ def get_sample_freqs(chrom_sizes: dict):
         sample_freqs[k] = v / total_size
     return sample_freqs
 
-def sample_random_loci(chrom_sizes: dict, sample_freqs: dict, n=1, seq_len=1000):
+def sample_random_ranges(chrom_sizes: dict, sample_freqs: dict, n=1, seq_len=1000):
     chrom_choices = np.random.choice(list(sample_freqs.keys()), n, list(sample_freqs.values()))
     upper_bounds = [chrom_sizes[chrom] - seq_len for chrom in chrom_choices]
     starts = np.random.randint(0, upper_bounds)
@@ -26,4 +26,4 @@ def sample_random_loci(chrom_sizes: dict, sample_freqs: dict, n=1, seq_len=1000)
 # Example usage:
 # chrom_sizes = read_hg38_chrom_sizes()
 # sample_freqs = get_sample_freqs(chrom_sizes)
-# sample_random_loci(chrom_sizes, sample_freqs, 100)
+# sample_random_ranges(chrom_sizes, sample_freqs, 100, 18000)
