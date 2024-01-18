@@ -3,4 +3,4 @@ Random bits and bobs
 
 ## Functions
 
-- `genomic_regions.py` includes tools for sampling genomic ranges
+- `genomic_ranges.py` includes tools for sampling genomic ranges
